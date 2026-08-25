@@ -44,7 +44,6 @@ Oyunların çevrimiçi (online) özelliklerini aktif eden bir yamalama programı
 
 > [!CAUTION]
 > - Bu yazılım **yalnızca eğitim ve kişisel kullanım amacıyla** oluşturulmuştur.
-> - **Ticari kullanım kesinlikle yasaktır.**
 > - Program hiçbir şekilde korsan yazılım kullanmaz veya paylaşmaz.
 > - Kullanıcılar bu programı **kendi sorumluluklarında** kullanır.
 > - Mağaza araması yalnızca ad → AppID yönünde kullanılır; oyun dosyalarına erişim sağlanmaz.
