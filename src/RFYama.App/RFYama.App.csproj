@@ -1,0 +1,61 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <!-- .NET uydu kaynaklari: yalnizca Turkce tutulur, digerleri ~14 MB yer kaplar. -->
+    <SatelliteResourceLanguages>tr</SatelliteResourceLanguages>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <RootNamespace>RFYama.App</RootNamespace>
+    <AssemblyName>RFYama</AssemblyName>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon>rfyama.ico</ApplicationIcon>
+    <Version>1.0.0</Version>
+    <AssemblyTitle>RF-Yama</AssemblyTitle>
+    <Product>RF-Yama</Product>
+    <!--
+      Tek dosya yayın: kullanıcı yüzlerce DLL arasında exe'yi bulamıyordu.
+
+      IncludeNativeLibrariesForSelfExtract=false KRİTİKTİR. Yerel kütüphaneler pakete
+      gömülürse program çalışma anında kendini %TEMP%\.net altına açar; Defender'ın dropper
+      sezgiseline takılan davranış tam olarak budur. False bırakıldığında .NET yönetilen
+      derlemeleri paketin içinden doğrudan çalıştırır, hiçbir şey açılmaz — ölçüldü:
+      çalışırken %TEMP%\.net oluşmuyor ve Defender taraması temiz.
+    -->
+    <PublishSingleFile>true</PublishSingleFile>
+    <IncludeNativeLibrariesForSelfExtract>false</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RFYama.Core\RFYama.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Yama dosyaları derlemeye gömülmez; exe'nin yanındaki payload\ klasöründen okunur. -->
+    <None Include="..\..\payload\**\*"
+          Link="payload\%(RecursiveDir)%(Filename)%(Extension)"
+          CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!--
+    WindowsDesktop çalışma zamanı paketi WinForms ile birlikte WPF'i de kopyalar. Bu uygulama
+    WPF kullanmaz; bu yerel kütüphaneler yüklenmez, yalnızca yayın klasörünü kalabalıklaştırır.
+    Silindikten sonra uygulamanın açıldığı doğrulandı.
+
+    vcruntime140_cor3.dll BİLİNÇLİ OLARAK BIRAKILIYOR: uygulamanın sisteme kurulu bir
+    Visual C++ Redistributable'a ihtiyaç duymamasını sağlayan yerel kopya odur.
+  -->
+  <Target Name="KullanilmayanWpfYerelKutuphaneleriniSil" AfterTargets="Publish">
+    <ItemGroup>
+      <WpfYerel Include="$(PublishDir)D3DCompiler_47_cor3.dll" />
+      <WpfYerel Include="$(PublishDir)PenImc_cor3.dll" />
+      <WpfYerel Include="$(PublishDir)PresentationNative_cor3.dll" />
+      <WpfYerel Include="$(PublishDir)wpfgfx_cor3.dll" />
+    </ItemGroup>
+    <Delete Files="@(WpfYerel)" ContinueOnError="true" />
+  </Target>
+
+</Project>

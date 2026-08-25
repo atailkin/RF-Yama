@@ -1,0 +1,7 @@
+bin/
+obj/
+yayin/
+*.user
+*.suo
+.vs/
+payload/*.dll
