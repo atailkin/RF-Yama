@@ -1,36 +1,61 @@
 # RF-Yama
 
-Oyunların online özelliklerini aktif eden bir yamalama programı.
+Oyunların çevrimiçi (online) özelliklerini aktif eden bir yamalama programı.
 
-Amaç: kullanıcının **sahip olduğu**, çevrimdışı çalışan oyunları çok oyunculu
-oynanabilir hale getirmektir.
+> [!IMPORTANT]
+> **Amaç:** Kullanıcının **sahip olduğu**, çevrimdışı çalışan oyunları çok oyunculu oynanabilir hale getirmektir.
 
-### AppID tespiti
+## İçindekiler
+- [AppID Tespiti](#appid-tespiti)
+- [Kullanım](#kullanım)
+- [Kişisel Veriler](#kişisel-veriler)
+- [Sorumluluk Reddi Beyanı](#sorumluluk-reddi-beyanı)
+- [Sorun Bildirme ve Öneriler](#sorun-bildirme-ve-öneriler)
 
-`ini dosyasının` içindeki `real_app_id` alanı, oyunun Steam'den AppID'sini ister. Program bunu önce local dosyalardan arar ve eğer bulamazsa Steam'in GetAppList özelliği ile aramaya başlar
+## AppID Tespiti
+
+`ini` dosyasının içindeki `real_app_id` alanı, oyunun Steam üzerindeki AppID'sini gerektirir. Program bu bilgiyi şu sırayla arar:
+
+1. Önce yerel (local) dosyalardan arar.
+2. Bulamazsa Steam'in `GetAppList` özelliğini kullanarak arar.
+
+> [!NOTE]
+> Mağaza araması yalnızca **ad → AppID** yönünde çalışır. Oyun ayrıntıları, fiyat ya da DLC listesi çekilmez; oyun dosyalarına erişen herhangi bir çağrı yapılmaz.
 
 ## Kullanım
 
-İndirilen dosyayı (RF-Yama-win-x64.zip) sağ tıklayarak tümünü ayıkla seçeneğine basın, ayıklanan dosyayı açın ve RFYama.exe programına çift tıklayın.
-İlk işlem olarak Gözat... butonuna basıp oyunun klasörünü seçtikten sonra sağ alttan klasörü seçin butonuna basın. Eğer AppID Otomatik bulunamadı diyorsa AppID ara tuşuna basın ve ordan oyunu seçin (AppID aramak en fazla 3 dakikayı bulabilir)
-ve en son olarak kur butonuna basın ve işlem tamamlanınca programı kapatıp oyun dosyasından oyuna girebilirsiniz
+1. İndirilen `RF-Yama-win-x64.zip` dosyasına sağ tıklayıp **Tümünü Ayıkla**'yı seçin.
+2. Ayıklanan klasörü açın ve `RFYama.exe` dosyasına çift tıklayın.
+3. **Gözat...** butonuna basarak oyunun kurulu olduğu klasörü seçin.
+4. Sağ alttaki **Klasörü Seç** butonuna basın.
+5. AppID otomatik bulunamazsa **AppID Ara** butonuna basıp listeden oyunu seçin.
+6. **Kur** butonuna basın.
+7. İşlem tamamlandığında programı kapatıp oyunu kendi klasöründen başlatabilirsiniz.
+
+> [!TIP]
+> AppID araması, bağlantı hızına bağlı olarak **en fazla 3 dakika** sürebilir.
 
 ## Kişisel Veriler
 
-Program hiç bir şekilde veri toplayıp göndermez, belirli durumlarda gereken internet bağlantısı sadece Steam sunucularından oyunun ID'sini getirmek içindir.
+> [!NOTE]
+> Program hiçbir şekilde kullanıcı verisi toplamaz ya da göndermez. Gereken internet bağlantısı yalnızca Steam sunucularından oyunun AppID bilgisini almak içindir.
 
 ## Sorumluluk Reddi Beyanı
 
-**Bu yazılım eğitim amaçlı oluşturulmuştur.**
-Bu araç sadece kodlama eğitimi ve kişisel kullanım amaçlıdır
-Ticari kullanıma izin verilmez
-Kullanıcılar bu programı kendi sorumluluklarında kullanırlar
-Programda hiç bir şekilde korsan yazılım kullanılmaz veya paylaşılmaz. 
-Mağaza araması yalnızca **ad → AppID** yönünde kullanılır; oyun ayrıntıları, fiyat veya DLC
-listesi, **oyun dosyaları** alan bir çağrı yoktur.
+> [!CAUTION]
+> - Bu yazılım **yalnızca eğitim ve kişisel kullanım amacıyla** oluşturulmuştur.
+> - **Ticari kullanım kesinlikle yasaktır.**
+> - Program hiçbir şekilde korsan yazılım kullanmaz veya paylaşmaz.
+> - Kullanıcılar bu programı **kendi sorumluluklarında** kullanır.
+> - Mağaza araması yalnızca ad → AppID yönünde kullanılır; oyun dosyalarına erişim sağlanmaz.
 
-## Sorun bildirme ve öneriler
+## Sorun Bildirme ve Öneriler
 
-Beklenmeyen bir hata olursa yığın izi `%APPDATA%\RFYama\hata.log` dosyasına eklenir ve hata
-penceresinde yolu gösterilir. Kullanıcılar https://github.com/atailkin/RF-Yama/issues kısmından hata logunu ve önerileri paylaşabilir
-İşlem geçmişi ayrıca **Log** sekmesinde tutulur ve `.log` olarak dışa aktarılabilir.
+Beklenmeyen bir hata oluşursa:
+- Hata yığın izi (stack trace), `%APPDATA%\RFYama\hata.log` dosyasına otomatik olarak eklenir.
+- Hata penceresinde dosyanın yolu gösterilir.
+
+> [!TIP]
+> Hatalarınızı ve önerilerinizi [GitHub Issues](https://github.com/atailkin/RF-Yama/issues) sayfasından, `hata.log` dosyasını da ekleyerek paylaşabilirsiniz.
+
+İşlem geçmişi ayrıca uygulamanın **Log** sekmesinde tutulur ve `.log` formatında dışa aktarılabilir.
