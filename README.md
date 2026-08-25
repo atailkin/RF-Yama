@@ -10,6 +10,8 @@ Oyunların çevrimiçi (online) özelliklerini aktif eden bir yamalama programı
 - [Kullanım](#kullanım)
 - [Kişisel Veriler](#kişisel-veriler)
 - [Sorumluluk Reddi Beyanı](#sorumluluk-reddi-beyanı)
+- [SSS (Sıkça Sorulan Sorular)](#sss-sıkça-sorulan-sorular)
+- [Bilinen Sınırlamalar](#bilinen-sınırlamalar)
 - [Sorun Bildirme ve Öneriler](#sorun-bildirme-ve-öneriler)
 
 ## AppID Tespiti
@@ -47,6 +49,37 @@ Oyunların çevrimiçi (online) özelliklerini aktif eden bir yamalama programı
 > - Program hiçbir şekilde korsan yazılım kullanmaz veya paylaşmaz.
 > - Kullanıcılar bu programı **kendi sorumluluklarında** kullanır.
 > - Mağaza araması yalnızca ad → AppID yönünde kullanılır; oyun dosyalarına erişim sağlanmaz.
+
+## SSS (Sıkça Sorulan Sorular)
+
+**S: Bu program virüs mü?**
+C: Hayır, programı antivirüsünüzü açık tutarak rahatça kullanabilirsiniz, ayrıca teknik bilginiz var ise VirusTotal kullanarak ya da direkt kaynak kodlarını inceleyerek test edebilirsiniz.
+
+**S: Program internet bağlantısı istiyor, güvenli mi?**
+C: Evet. İnternet bağlantısı yalnızca Steam sunucularından oyunun AppID bilgisini çekmek için kullanılır, başka hiçbir veri gönderilmez veya toplanmaz.
+
+**S: AppID otomatik bulunamadı, ne yapmalıyım?**
+C: **AppID Ara** butonuna basıp listeden oyununuzu manuel olarak seçebilirsiniz. Bu işlem bağlantı hızına göre en fazla 3 dakika sürebilir.
+
+**S: Bu programı kullanmak yasal mı?**
+C: Program yalnızca **sahip olduğunuz** orijinal oyunlar üzerinde kullanılmak üzere tasarlanmıştır ve hiçbir korsan içerik barındırmaz ya da paylaşmaz. Kullanım sorumluluğu tamamen kullanıcıya aittir.
+
+**S: Program ücretsiz mi?**
+C: Evet, RF-Yama tamamen ücretsizdir ve açık kaynaklıdır; ticari amaçla asla satılmayacaktır.
+
+**S: Hangi işletim sistemlerinde çalışır?**
+C: Şu an yalnızca 64 bit (x64) Windows sistemlerinde çalışmaktadır.
+
+> [!NOTE]
+> Sorunuzun cevabını burada bulamadıysanız [GitHub Issues](https://github.com/atailkin/RF-Yama/issues) üzerinden sorabilirsiniz.
+
+## Bilinen Sınırlamalar
+
+> [!WARNING]
+> - 32 bit oyunlarda çalışmaz.
+> - Özel (custom) sunucu kullanan oyunlarda çalışmaz.
+> - Epic Games, Rockstar Launcher gibi Steam dışı platform oyunlarında çalışmaz; yalnızca Steam ile uyumludur.
+> - Aşırı büyük kurumsal oyunlarda çalışmaz (örnek: GTA V, Rainbow Six, Mortal Kombat serisi, CS2).
 
 ## Sorun Bildirme ve Öneriler
 
