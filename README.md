@@ -34,6 +34,8 @@ Oyunların çevrimiçi (online) özelliklerini aktif eden bir yamalama programı
 6. **Kur** butonuna basın.
 7. İşlem tamamlandığında programı kapatıp oyunu kendi klasöründen başlatabilirsiniz.
 
+![RF-Yama kullanım ekranı](https://github.com/user-attachments/assets/5f612755-cb7f-4f35-94d5-e5cc5e425457)
+
 > [!TIP]
 > AppID araması, bağlantı hızına bağlı olarak **en fazla 3 dakika** sürebilir.
 
